@@ -1,0 +1,131 @@
+ 1019  echo "it's hard to do that" # экранирование одинарной кавычки с помощью двойных
+ 1020  echo 'it'\''s hard to do that' # экранирование одинарной кавычки в одинарных кавычках
+ 1021  echo '"Пример текста в кавычках"' # экранируем двойные кавычки
+ 1022  # строка, которая начинается с символа решётки, является комментарием и игнорируется
+ 1023  echo '# эта строка не является комментарием'
+ 1024  whoami
+ 1025  whoaim
+ 1026  whoami
+ 1027  echo "Hello World"
+ 1028  date
+ 1029  cal
+ 1030  man cal
+ 1031  cal -3
+ 1032  history 
+ 1033  clear
+ 1034  pwd
+ 1035  cd /
+ 1036  cd ..
+ 1037  ls
+ 1038  ls /var
+ 1039  cd /drive2/mephi/MP/lab1
+ 1040  cd ..
+ 1041  cd
+ 1042  cd ..
+ 1043  ls
+ 1044  ls -l
+ 1045  man ls
+ 1046  cd
+ 1047  mkdir fruits
+ 1048  cd /
+ 1049  mkdir ~/animals
+ 1050  touch /tmp/temp
+ 1051  cd ~/fruits/
+ 1052  touch apple banana pineaple lion
+ 1053  touch ../animals/cat.txt ../animals/dog.txt ../animals/elephant.txt
+ 1054  file apple 
+ 1055  stat apple 
+ 1056  ls b*
+ 1057  ls [bi]*
+ 1058  cp /etc/passwd ~
+ 1059  cat /etc/issue
+ 1060  cp /etc/issue apple 
+ 1061  cat apple 
+ 1062  mv lion ../animals/
+ 1063  mv pineaple pineapple
+ 1064  wc --help
+ 1065  wc /etc/passwd
+ 1066  wc -l /etc/passwd
+ 1067  cd 
+ 1068  ln -s /etc/passwd passwd_link
+ 1069  ln .bash_history history_hard
+ 1070  ls -l
+ 1071  ls -l .bash_history 
+ 1072  rm fruits/apple 
+ 1073  mkdir rmme 
+ 1074  rm rmme/
+ 1075  rm rmme -r
+ 1076  mkdir rmme 
+ 1077  rmdir rmme/
+ 1078  rmdir fruits
+ 1079  rm -r fruits/
+ 1080  cat /etc/passwd /var/log/boot.log
+ 1081  cp /etc/init.d/ ~
+ 1082  cp -r /etc/init.d/ ~
+ 1083  cut -d: -f1 /etc/passwd
+ 1084  cat /etc/passwd
+ 1085  cut -d: -f1 /etc/passwd | sort
+ 1086  cut -d: -f1,3,4 /etc/passwd
+ 1087  cut -d: -f1,3,4 /etc/passwd | column -ts:
+ 1088  man column 
+ 1089  cat /etc/passwd | less
+ 1090  grep :/bin/bash /etc/passwd | wc -l
+ 1091  grep :/bin/bash /etc/passwd | cut -d: -f1 | sort -r
+ 1092  rpm
+ 1093  rpm -qa --qf '%{NAME}: %{SIZE}\n' | sort -rn -k2,2 | tail -n 25
+ 1094* man less
+ 1095  rpm -qa --qf '%{NAME}: %{SIZE}\n' | sort -rn -k2,2 | less -n 25
+ 1096  man less
+ 1097  rpm -qa --qf '%{NAME}: %{SIZE}\n' | sort -rn -k2,2 | less -h 25
+ 1098  rpm -qa --qf '%{NAME}: %{SIZE}\n' | sort -rn -k2,2 | head -n 25
+ 1099  rpm -ql man-db | xargs -l du    2> /dev/null  | sort -n
+ 1100  top -b -n1
+ 1101  top -b -n1 | sort -k12
+ 1102  man cut
+ 1103  top -b -n1 | tail -n+8 | cut -c7-  | tr -s ' ' '\t' | cut -f11,5
+ 1104  top -b -n1 | tail -n+8 | cut -c7-  | tr -s ' ' '\t' | cut -f12,5
+ 1105  top -b -n1 | tail -n+8 | cut -c7-  | tr -s ' ' '\t' | cut -f11,5
+ 1106  man sort
+ 1107  sort /etc/passwd | tr ":" " "
+ 1108  sort /etc/passwd | cut -d: -f1,7
+ 1109  sort /etc/passwd | cut -d: -f1,7 | column -ts:
+ 1110  ls
+ 1111  rm -rf animals/ passwd history_hard passwd_link 
+ 1112  cd /usr/share/doc/git*
+ 1113  find / -name *user-manual.txt
+ 1114  find / -name *user-manual.txt 2> /dev/null
+ 1115  cd /drive2/mephi/BOS/lab1/
+ 1116  git clone https://github.com/git/git 
+ 1117  cd git/Documentation/
+ 1118  cat user-manual.txt 
+ 1119  cat user-manual.txt | tr ' ' '\012' | tr '[:upper:]' '[:lower:]'
+ 1120  cat user-manual.txt | tr ' ' '\012' | tr '[:upper:]' '[:lower:]'  | tr -d '[:punct:]'
+ 1121  cat user-manual.txt | tr ' ' '\012' | tr '[:upper:]' '[:lower:]'
+ 1122  cat user-manual.txt | tr ' ' '\012' | tr '[:upper:]' '[:lower:]'  | tr -d '[:punct:]'
+ 1123  cat user-manual.txt | tr ' ' '\012' | tr '[:upper:]' '[:lower:]'  | tr -d '[:punct:]' | grep -v '[^a-z]'
+ 1124  cat user-manual.txt | tr ' ' '\012' | tr '[:upper:]' '[:lower:]'  | tr -d '[:punct:]'
+ 1125  cat user-manual.txt | tr ' ' '\012' | tr '[:upper:]' '[:lower:]'  | tr -d '[:punct:]' | grep -v '[^a-z]'
+ 1126  cat user-manual.txt | tr ' ' '\012' | tr '[:upper:]' '[:lower:]'  | tr -d '[:punct:]' | grep -v '[^a-z]' | sort | uniq -c 
+ 1127  cat user-manual.txt | tr ' ' '\012' | tr '[:upper:]' '[:lower:]'  | tr -d '[:punct:]' | grep -v '[^a-z]' | sort | uniq -c | sort -rn | head -5
+ 1128  man tr
+ 1129  cat user-manual.txt | tr -cs '[:alpha:]' '\n'
+ 1130  cat user-manual.txt | tr -cs '[:alpha:]' '\n' | tr '[:upper:]' '[:lower:]' | sort | uniq -c | sort -rn | head -5
+ 1131  cat user-manual.txt | tr ' ' '\012' | tr '[:upper:]' '[:lower:]'  | tr -d '[:punct:]' | grep -v '[^a-z]' | sort | uniq -c | sort -rn | head -5
+ 1132  cat user-manual.txt | tr ' ' '\012' | tr '[:upper:]' '[:lower:]'  | tr -d '[:punct:]' | grep -v '[^a-z]' | sort | uniq -c | sort -rn | tail -5
+ 1133  cat user-manual.txt | tr -cs '[:alpha:]' '\n' | tr '[:upper:]' '[:lower:]' | sort | uniq -c | sort -rn | tail -5
+ 1134  tr '[:lower:]' '[:upper:]' < user-manual.txt |  tr -d '[:punct:] \n\t' | fold -w1 | sort | uniq -c | sort -rn | head -5
+ 1135  tr -cs '[:alpha:]' '\n' < user-manual.txt | less | grep -E ........ | sort | uniq -c | sort -rn | head
+ 1136  ping ya.ru
+ 1137  curl wttr.in
+ 1138  hostname -I
+ 1139  curl ifconfig.me
+ 1140  cd ../../
+ 1141  wget https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README-ru.md
+ 1142  less README-ru.md 
+ 1143  if
+ 1144  id 
+ 1145  sudo id
+ 1146  less /var/log/messages
+ 1147  sudo less /var/log/messages
+ 1148  history
+ 1149  history | tail -n 131 > commandline_history.txt
